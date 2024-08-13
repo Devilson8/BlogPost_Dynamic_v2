@@ -1,0 +1,142 @@
+<%- include("partials/_header.ejs") %>
+<body>
+  
+      <!-- Btn Get Stared-->
+      <div class="theBtn">
+        <button class="btn1 btn-dark addPost1" style="font-family: arial">
+          Get started
+        </button>
+      </div>
+  
+      <div class="overlay hide"></div>
+    <div class="container">
+    <div class="row g-2">
+        <div class="col-md-7">
+          <h3 class="pb-4 mb-4 fst-italic border-bottom py-4"></h3>
+    
+          <article class="blog-post">
+                    <h2 class="display-5 link-body-emphasis mb-1">Articles</h2>
+                    <br>
+                    <h3>Top 3 cities to visit in 2024</h3>
+                    <p>Here are some of the best cities to visit in 2024, based on trends, cultural events, and unique attractions:</p>
+                    <p><strong>1. Tokyo, Japan</strong> - With the completion of several major projects and the return of international events, Tokyo remains a top destination for its blend of modernity and tradition.</p>
+                    <p> <strong> 2. Rome, Italy</strong> - Rome’s rich history and new archaeological discoveries make it an evergreen favorite, enhanced by ongoing restorations and exhibitions.</p>
+                    <p><strong>3.	Lisbon, Portugal</strong> - Known for its picturesque streets, historic architecture, and culinary delights, Lisbon continues to grow in popularity.</p>
+                    <br>
+                    <h3>The joy of reading during trips. Here are one of the benefits of curling up with a good book</h3>
+                    <p>
+                    Examine how reading can enhance cognitive function, empathy, and relaxation.
+                    The simple pleasure of reading during the winter comes down to a few comforting reasons While it may be a bit different for everyone, there’s only one basic necessity — having the world dissolve away as you get lost in a good book!
+                    Winter and curling up with a book go together. As the outside world turns cold and blustery, you won’t feel bad that you’ve stayed inside all day because, hey, you finally finished that novel on your “want to read” list.
+                    </p> <br><br>
+          </article>    
+        <h2>Recent Posts</h2>
+          <div class="container mb-4">
+              <div class="row">
+                  <button class="btn btn-outline-dark my-2 addPost2">Add your posts here</button>
+
+                  <% triPosts.forEach(post=> { %>
+                      <div class="col-md-12 mt-4">
+                          <div class="card shadow">
+                              <div class="card-body text-center">
+                                  <a href="#">
+                                      <img class="card-img-top" src="none" alt="">
+                                  </a>
+                                  <ul class="list-inline mt-3">
+                                      <li class="list-inline-item"><i class="fas fa-user"></i> <%=post.author%> </li>
+                                      <li class="list-inline-item"><i class="far fa-clock"></i> <%=post.date%></li>
+                                  </ul>
+                                  <hr>
+                                  <h4><%= post.title%></h4>
+                                  <p class="lead"><%= post.content %></p>
+                                  <p><%= post.button%></p>
+                                  <a
+                                  class="btn btn-outline-primary"
+                                  style="color: white"
+                                  href="/edit/<%= post.id %>"
+                                  >Update</a
+                                >
+                                  <a class="btn btn-danger" href="/api/delete/<%= post.id %>">Delete</a>
+                              </div>
+                          </div>
+                      </div>
+                  <% });%>
+              </div>
+          </div>
+        </div>
+
+
+  
+        <div class="col-md-5 py-5">
+          <div class="position-sticky" style="top: 2rem;">
+            <div class="p-4 mb-3 bg-body-tertiary rounded">
+              <h4 class="fst-italic">About Us</h4>
+              <p class="mb-0">Welcome to BlogTrip! We are team travelers with a passion for exploring the world’s hidden gems and sharing our adventures with our fellow travel enthusiasts. <a href="/about"><i><strong>Read More</i></strong></a></p>
+            </div>
+    
+            <div>
+              <h4 class="fst-italic">Trending</h4>
+              <ul class="list-unstyled">
+                <li>
+                  <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="#">
+                    <a href="/motherAfrica"><img src="imgs/cp_mountain.png" width="100%" height="96" alt=""></a>
+                      <h6 class="mb-0">The mother city of Africa</h6>
+                      <small class="text-body-secondary"> <%= locals.date%></small>
+                  </a>
+                </li>
+                <li>
+                  <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="#">
+                    <a href="/cocktailTrip"><img src="imgs/cocktail_trip.jpeg" width="100%" height="96" alt=""></a>
+                      <h6 class="mb-0">Our trip to Maldives</h6>
+                      <small class="text-body-secondary"><%= locals.date%></small>
+                  </a>
+                </li>
+                <li>
+                  <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="#">
+                    <a href="/tripSpain"><img src="imgs/spain_trip.png" width="100%" height="96" alt=""></a>
+                      <h6 class="mb-0">Why Mallorca so special?</h6>
+                      <small class="text-body-secondary"><%= locals.date%></small>
+                  </a>
+                </li>
+                <li>
+                    <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="#">
+                        <a href="/cancunBar"><img src="imgs/cocktails_beach.png" width="100%" height="96" alt=""></a>
+                        <h6 class="mb-0">Thirsty? Come join us in Cancun bar!</h6>
+                        <small class="text-body-secondary"><%= locals.date%></small>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="#">
+                        <a href="/disneyParis"><img src="imgs/paris_disney.png" width="100%" height="96" alt=""></a>
+                        <h6 class="mb-0">10 things to know before coming to Disney Paris</h6>
+                        <small class="text-body-secondary"><%= locals.date%></small>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="#">
+                        <a href="/jamaicanResort"><img src="imgs/resort_jama.png" width="100%" height="96" alt=""></a>
+                        <h6 class="mb-0">12 tips for visiting a Jamaican Resort</h6>
+                        <small class="text-body-secondary">June 26, 2024</small>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="#">
+                    <a href="/amsterdamAutumn"><img src="imgs/holland_amsterdan.png" width="100%" height="96" alt=""></a>
+                        <h6 class="mb-0">Autumn moments in Amsterdan</h6>
+                        <small class="text-body-secondary">June 20, 2024</small>
+                    </a>
+                  </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+    <script>
+      const btn = document.getElementsByClassName("app").innerHTML;
+    </script>
+<%- include("partials/_footer.ejs") %>
+
